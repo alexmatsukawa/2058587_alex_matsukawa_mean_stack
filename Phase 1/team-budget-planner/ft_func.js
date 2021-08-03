@@ -31,6 +31,6 @@ function displayData() {
     for(var j = 0; j < clientJson.length; j++) {
         budgetTotal += parseInt(clientJson[j].budget);
     }
-    p.innerHTML = "The total budget for all projects is " + budgetTotal + ".";
+    p.innerHTML = "The total budget for all projects is $" + budgetTotal + ".";
     document.getElementById("main").appendChild(p);
 }
