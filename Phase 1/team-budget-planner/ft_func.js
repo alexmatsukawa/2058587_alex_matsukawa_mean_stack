@@ -15,7 +15,7 @@ function displayData() {
     c = r.insertCell(1);
     c.innerHTML = "Project Name";
     c = r.insertCell(2);
-    c.innerHTML = "Budget";
+    c.innerHTML = "Budget ($)";
     for(var i = 0; i < clientJson.length; i++) {
         r = table.insertRow(i + 1);
         c = r.insertCell(0);
