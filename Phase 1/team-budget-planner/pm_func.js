@@ -1,5 +1,7 @@
-let clients = [];
-localStorage.setItem("cliObj", JSON.stringify(clients));
+if (localStorage.getItem("cliObj") == undefined) {
+    let clients = [];
+    localStorage.setItem("cliObj", JSON.stringify(clients));
+}
 
 function storeData() {
     var localClientData = localStorage.getItem("cliObj");
