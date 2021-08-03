@@ -1,9 +1,11 @@
 function displayData() {
     document.getElementById("main").innerHTML="";
     let clientObj = localStorage.getItem("cliObj");
-    let clientJson = JSON.parse(clientObj)
-    var table = document.createElement("table")
-    for(var i = 0; i < Object.keys(clientJson.cli_name[i]).length; i++) {
+    console.log(clientObj);
+    let clientJson = JSON.parse(clientObj);
+    console.log(clientJson);
+    var table = document.createElement("table");
+    for(var i = 0; i < clientJson.length; i++) {
         var r, c;
         r = table.insertRow(i);
         c = r.insertCell(0);
