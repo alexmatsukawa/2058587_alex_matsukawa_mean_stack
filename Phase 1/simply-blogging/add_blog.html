@@ -25,5 +25,17 @@
             </div>
         </div>
     </div>
+    <br><br>
+    <div>
+        <form action="add_blog.html" onsubmit="addBlog(); return false">
+        <b>Title:&emsp;&emsp;&ensp;&nbsp;&nbsp;</b><input type="text" id="title" required><br><br>
+        <b>Content:&emsp;&nbsp;&nbsp;</b><textarea id="content" rows="4" cols="25" required></textarea><br><br>
+        <b>Image URL: </b><input type="text" id="img" required><br>
+        <input type="submit" value="Add Blog">
+        </form>
+    </div>
+    <div class="container-fluid" id="blog-area">
+        <div class="row" id="blog-items"></div>
+    </div>
 </body>
 </html>
