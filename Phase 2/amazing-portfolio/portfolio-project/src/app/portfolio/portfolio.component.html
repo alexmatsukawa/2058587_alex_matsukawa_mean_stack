@@ -15,6 +15,19 @@
 
 <div *ngIf="signUpFlag">
     <h2 style="text-align: center;">Registration Page</h2>
+    <form [formGroup] = "regRef" (ngSubmit)="saveUser()">
+        <label>First Name: </label>
+        <input type="text" formControlName="fname"><br>
+        <label>Last Name: </label>
+        <input type="text" formControlName="lname"><br>
+        <label>Username: </label>
+        <input type="text" formControlName="username"><br>
+        <label>Password: </label>
+        <input type="password" formControlName="pass"><br><br>
+        <input type="submit" value="Register" [disabled]="regRef.invalid">
+        <input type="reset" value="Reset">
+    </form>
+    <br>
     <button (click)="signUpFlag=false; loginFlag=true">Back to Login</button>
 </div>
 
@@ -39,4 +52,7 @@
             <td>{{contact.pNum}}</td>
         </tr>
     </table>
+
+    <br>
+    <button (click)="portfolioFlag=false; loginFlag=true;">Logout</button>
 </div>

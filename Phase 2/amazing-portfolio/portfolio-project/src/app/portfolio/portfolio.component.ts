@@ -26,10 +26,18 @@ export class PortfolioComponent implements OnInit {
     pass:new FormControl("", [Validators.required])
   });
 
+  regRef = new FormGroup({
+    fname:new FormControl("", [Validators.required]),
+    lname:new FormControl("", [Validators.required]),
+    username:new FormControl("", [Validators.required]),
+    pass:new FormControl("", [Validators.required])
+  })
+
   contactRef = new FormGroup({
     name:new FormControl("", [Validators.required]),
     pNum:new FormControl("", [Validators.required])
   })
+
 
   constructor() { }
 
@@ -49,7 +57,7 @@ export class PortfolioComponent implements OnInit {
     this.userData = JSON.parse(localStorage.getItem("users")!);
     for(var i = 0; i < this.userData.length; i++) {
       if(this.userData[i].username == user.username && this.userData[i].pass == user.pass) {
-        this.msg = "Login Successful! Redirecting..."
+        this.user = this.userData[i].username;
         this.loginFlag = false;
         this.portfolioFlag = true;
       }
@@ -59,18 +67,36 @@ export class PortfolioComponent implements OnInit {
   }
 
   saveUser() {
-
+    if(localStorage.getItem("users") == undefined) {
+      this.userData = [];
+      localStorage.setItem("users", JSON.stringify(this.userData));
+      this.userData = ""
+    }
+    let newUser = this.regRef.value;
+    console.log(newUser);
+    this.userData = "";
+    this.userData = JSON.parse(localStorage.getItem("users")!)
+    this.userData.push({
+      "fname" : newUser.fname,
+      "lname" : newUser.laname,
+      "username" : newUser.username,
+      "pass" : newUser.pass
+    })
+    localStorage.setItem("users", JSON.stringify(this.userData));
+    this.signUpFlag = false;
+    this.loginFlag = true;
   }
-  
+
   saveContact() {
+    this.msg = "";
     if(localStorage.getItem("contacts") == undefined) {
       this.contactData = [];
       localStorage.setItem("contacts", JSON.stringify(this.contactData));
-      this.contactData = ""
+      this.contactData = "";
     }
     let contact = this.contactRef.value;
     console.log(contact);
-    this.contactData = ""
+    this.contactData = "";
     this.contactData = JSON.parse(localStorage.getItem("contacts")!);
     this.contactData.push({
       "name" : contact.name,
