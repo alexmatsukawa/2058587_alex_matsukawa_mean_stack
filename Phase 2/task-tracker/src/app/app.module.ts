@@ -12,8 +12,8 @@ import { MatTableModule } from '@angular/material/table'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatNativeDateModule, MAT_DATE_FORMATS } from '@angular/material/core';
-import { MY_DATE_FORMATS } from './my-date-formats';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -33,9 +33,7 @@ import { MY_DATE_FORMATS } from './my-date-formats';
     MatNativeDateModule,
     MatTableModule
   ],
-  providers: [
-    {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS}
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

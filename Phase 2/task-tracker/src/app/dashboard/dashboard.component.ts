@@ -1,3 +1,4 @@
+import { getLocaleDateTimeFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -14,9 +15,6 @@ export class DashboardComponent implements OnInit {
     task:new FormControl("", [Validators.required]),
     deadline:new FormControl("", [Validators.required]),
   });
-
-  //MISC STRINGS
-  msg:string = "";
 
   //ARRAYS
   taskData:any;
@@ -43,5 +41,14 @@ export class DashboardComponent implements OnInit {
       "deadline" : newTask.deadline
     })
     localStorage.setItem("tasks", JSON.stringify(this.taskData));
+  }
+
+  displayTable() {
+    if(localStorage.getItem("tasks") == undefined) {
+      this.taskData = [];
+      localStorage.setItem("tasks", JSON.stringify(this.taskData));
+      this.taskData= "";
+    }
+    this.taskData = JSON.parse(localStorage.getItem("tasks")!);
   }
 }
