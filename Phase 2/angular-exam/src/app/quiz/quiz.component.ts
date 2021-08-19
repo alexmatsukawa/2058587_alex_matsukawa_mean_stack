@@ -21,7 +21,6 @@ export class QuizComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //console.log("before sub");
     this.quiz.getQuestions().subscribe(data=> {
       for(let q of data) {
         this.myForm.addControl(q.question, this.form.control(""));
@@ -29,7 +28,6 @@ export class QuizComponent implements OnInit {
         console.log(this.questionBank);
       }
     });
-    //console.log("after foreach");
   }
 
   submitQuiz() {
