@@ -1,6 +1,6 @@
 [
     {
-        "question" : "When was the Angular Framework first introduced?", 
+        "question" : "1.) When was the Angular Framework first introduced?", 
         "ans1" : "September 2016", 
         "ans2" : "September 2017", 
         "ans3" : "August 2015", 
@@ -8,7 +8,7 @@
         "correctAns" : "September 2016"
     },
     {
-        "question" : "When is attendance taken during the afternoon of this ILP program?", 
+        "question" : "2.) When is attendance taken during the afternoon of this ILP program?", 
         "ans1" : "5:00 PM", 
         "ans2" : "2:00 PM", 
         "ans3" : "1:00 PM", 
@@ -16,7 +16,7 @@
         "correctAns" : "2:00 PM"
     },
     {
-        "question" : "The Mexican Beer Corona is what type of beer?", 
+        "question" : "3.) The Mexican Beer Corona is what type of beer?", 
         "ans1" : "India Pale Ale", 
         "ans2" : "Baltic Porter", 
         "ans3" : "Pilfsner", 
@@ -24,7 +24,7 @@
         "correctAns" : "Pale Lager"
     },
     {
-        "question" : "Before 2016, in which other year did Donald Trump run for President?", 
+        "question" : "4.) Before 2016, in which other year did Donald Trump run for President?", 
         "ans1" : "1988", 
         "ans2" : "2012", 
         "ans3" : "2000", 
@@ -32,7 +32,7 @@
         "correctAns" : "2000"
     },
     {
-        "question" : "Which former Star Trek actor directed Three Men and a Baby (1987)?", 
+        "question" : "5.) Which former Star Trek actor directed Three Men and a Baby (1987)?", 
         "ans1" : "Leonard Nimoy", 
         "ans2" : "William Shatner", 
         "ans3" : "George Takei", 
@@ -40,7 +40,7 @@
         "correctAns" : "Leonard Nimoy"
     },
     {
-        "question" : "Who had a 1983 hit with the song Africa?", 
+        "question" : "6.) Who had a 1983 hit with the song Africa?", 
         "ans1" : "Foreigner", 
         "ans2" : "Journey", 
         "ans3" : "Toto", 
@@ -48,7 +48,7 @@
         "correctAns" : "Toto"
     },
     {
-        "question" : "How much did the indie game Cave Story cost when it was first released in 2004?", 
+        "question" : "7.) How much did the indie game Cave Story cost when it was first released in 2004?", 
         "ans1" : "$0 USD", 
         "ans2" : "$5 USD", 
         "ans3" : "$10 USD", 
@@ -56,7 +56,7 @@
         "correctAns" : "$0 USD"
     },
     {
-        "question" : "What is the largest living organism currently known to man?", 
+        "question" : "8.) What is the largest living organism currently known to man?", 
         "ans1" : "Blue Whale", 
         "ans2" : "Honey Fungus", 
         "ans3" : "Redwood Tree", 
@@ -64,7 +64,7 @@
         "correctAns" : "Honey Fungus"
     },
     {
-        "question" : "Who is the current lead singer for the band Queen?", 
+        "question" : "9.) Who is the current lead singer for the band Queen?", 
         "ans1" : "Freddie Mercury", 
         "ans2" : "Brian May", 
         "ans3" : "Brendon Urie", 
@@ -72,7 +72,7 @@
         "correctAns" : "Adam Lambert"
     },
     {
-        "question" : "What is the title of the latest album produced by the band Gorillaz?", 
+        "question" : "10.) What is the title of the latest album produced by the band Gorillaz?", 
         "ans1" : "Demon Days", 
         "ans2" : "The Now Now", 
         "ans3" : "Song Machine, Season One: Strange Timez", 

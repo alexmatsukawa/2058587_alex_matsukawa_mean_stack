@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Quiz } from '../quiz.model';
 import { QuizService } from '../quiz.service';
@@ -13,8 +14,9 @@ export class QuizComponent implements OnInit {
   myForm:FormGroup;
   selectedAns:string[] = [];
   innerHTMLString:string = "";
+  click:boolean = false;
 
-  constructor(public form:FormBuilder, public quiz:QuizService) {
+  constructor(public form:FormBuilder, public quiz:QuizService, @Inject(DOCUMENT) public _document: Document) {
     this.myForm = form.group({});
   }
 
@@ -36,23 +38,28 @@ export class QuizComponent implements OnInit {
     for(let i = 0; i < this.questionBank.length; i++) {
       if(this.questionBank[i].correctAns == this.selectedAns[i]) {
         let selectedRadio = document.getElementById(this.questionBank[i].correctAns);
-        selectedRadio?.setAttribute("style", "color: #00FF00")
+        selectedRadio!.setAttribute("style", "color: #007d00")
         correctCounter++;
       } else {
         let selectedRadio = document.getElementById(this.selectedAns[i]);
-        selectedRadio?.setAttribute("style", "color: #FF0000")
+        selectedRadio!.setAttribute("style", "color: #FF0000")
+        let correctRadio = document.getElementById(this.questionBank[i].correctAns);
+        correctRadio!.setAttribute("style", "color: #007d00")
       }
     }
     this.innerHTMLString = "<h2>" + correctCounter + "/10 ";
     if(correctCounter < 7) {
       this.innerHTMLString += "Failed. Please try to get 70% or higher to pass.</h2>" 
     } else {
-      this.innerHTMLString += "Passed! Coungratulations!</h2>"
+      this.innerHTMLString += "Passed! Congratulations!</h2>"
     }
+    this.myForm.disable();
+    this.click = !this.click;
   }
 
   resetVals() {
     this.selectedAns = [];
     this.innerHTMLString = "";
+    this._document.defaultView?.location.reload();
   }
 }
