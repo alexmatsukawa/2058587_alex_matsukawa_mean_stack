@@ -8,24 +8,21 @@
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/JavaScript">
         var socket = io();
+        var responses = ['How are you?', 'How was your day?', 'How may I help you?', 'What questions do you have for me?', 'Pleased to meet you. How may I help you today?', 'Sorry, I didn\'t quite get that. Could you please try again?'];
         function sendMessagetoServer() {
             var timestamp = new Date();
+            var serverMsg = '';
+            var resIndex = Math.floor(Math.random() * responses.length);
             socket.emit("name", document.getElementById("name").value);
             socket.emit("message", document.getElementById("message").value);
             socket.emit("time-sent", timestamp.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'}));
-            socket.on("serv-msg",(msg)=> {
-                document.getElementById("data_server").innerHTML += "<p><b>Server Message: </b>" + msg + "&nbsp&nbsp;" + timestamp.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'}) + "</p>";
-            })
+            serverMsg = responses[resIndex];
+            document.getElementById("data_server").innerHTML += "<p><b>Server Message: </b>" + serverMsg + "&nbsp&nbsp;" + timestamp.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'}) + "</p>";
         }
 
         function clearData() {
             document.getElementById("data-server").innerHTML = '';
         }
-
-        socket.on("serv-msg",(msg)=> {
-                var timestamp = new Date();
-                document.getElementById("data_server").innerHTML += "<p><b>Server Message: </b>" + msg + "&nbsp&nbsp;" + timestamp.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'}) + "</p>";
-        })
 
     </script>
 </head>
