@@ -14,11 +14,19 @@
             socket.emit("message", document.getElementById("message").value);
             socket.emit("time-sent", timestamp.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'}));
             socket.on("serv-msg",(msg)=> {
-                let p = document.createElement('p');
-                p.innerHTML = "<b>Server Message: </b>" + msg;
-                document.body.appendChild(p);
+                document.getElementById("data_server").innerHTML += "<p><b>Server Message: </b>" + msg + "&nbsp&nbsp;" + timestamp.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'}) + "</p>";
             })
         }
+
+        function clearData() {
+            document.getElementById("data-server").innerHTML = '';
+        }
+
+        socket.on("serv-msg",(msg)=> {
+                var timestamp = new Date();
+                document.getElementById("data_server").innerHTML += "<p><b>Server Message: </b>" + msg + "&nbsp&nbsp;" + timestamp.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'}) + "</p>";
+        })
+
     </script>
 </head>
 <body>
@@ -29,5 +37,6 @@
         <button onclick="sendMessagetoServer()">Send Message</button>
     </div>
     <br>
+    <div id="data_server" onload="clearData()"></div>
 </body>
 </html>
