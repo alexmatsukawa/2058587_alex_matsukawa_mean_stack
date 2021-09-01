@@ -20,10 +20,14 @@
             document.getElementById("data_server").innerHTML += "<p><b>Server Message: </b>" + serverMsg + "&nbsp&nbsp;" + timestamp.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'}) + "</p>";
         }
 
-        function clearData() {
+        function clearServerData() {
             document.getElementById("data-server").innerHTML = '';
         }
 
+        function clearFormData() {
+            document.getElementById("name").value = "";
+            document.getElementById("message").value = "";
+        }
     </script>
 </head>
 <body>
@@ -31,9 +35,9 @@
     <div id="data_client">
         <label><b>Name: &nbsp;&nbsp;&nbsp;&nbsp;</b></label><input type="text" id="name" name="name"><br>
         <label><b>Message: </b></label><textarea name="message" id="message"></textarea><br><br>
-        <button onclick="sendMessagetoServer()">Send Message</button>
+        <button onclick="sendMessagetoServer(); clearFormData()">Send Message</button>
     </div>
     <br>
-    <div id="data_server" onload="clearData()"></div>
+    <div id="data_server" onload="clearServerData()"></div>
 </body>
 </html>
