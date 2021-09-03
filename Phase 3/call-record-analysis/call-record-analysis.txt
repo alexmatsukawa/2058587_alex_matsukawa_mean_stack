@@ -1,0 +1,9 @@
+STEPS:
+
+1.) Open two command terminals and run the command 'mongod' and 'mongo' in separate terminals.
+	-> NOTE: If the mongodb directory was not added as a path variable, you will need to open the terminal in the folder where the mongodb version bin is located on your machine.
+2.) In the terminal where 'mongo' was ran, run the command 'use tcs_mean' to switch to the tcs_mean database.
+3.) In the same terminal, run the command 'db.createCollection("callRecord")' to create a new collection where the call records will be stored.
+4.) Next, run the command 'db.call-record.insertMany({json-data}])' to insert all the call records located in the json file. 
+	-> NOTE: json-data is a placeholder identifier which refers to the actual json data stored in the call records json file.
+5.) OPTIONAL: Run the command 'db.callRecord.find()' to make sure all the json data was added to the desired collection correctly.
