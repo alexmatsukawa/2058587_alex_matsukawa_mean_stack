@@ -13,7 +13,7 @@ let getAllCourseInfo = (req, res) => {
 let saveCourseInfo = (req, res) => {
     let course = req.body;
     courseModel.insertMany(course, (err, result) => {
-        if(!err) {
+        if(!err) { //need to check for duplicate course ID's...
             res.send("Course Added Successfully!");
         } else {
             res.send(err);
