@@ -7,7 +7,7 @@ const getData = () => {
 }
 
 const saveCourse = async () => {
-    console.log(JSON.stringify(getData()));
+    //console.log(JSON.stringify(getData()));
     await fetch('/api/course/addCourse', {
         method: 'POST', 
         body: JSON.stringify(getData()),

@@ -7,9 +7,11 @@ const getData = () => {
 }
 
 const deleteCourse = async () => {
-    var cdata = JSON.stringify(getData());
+    var cdata = getData();
+    //console.log(cdata);
     var cid = cdata._id;
-    await fetch('/api/course/deleteCourse/' + cid, {
+    console.log(cid);
+    await fetch(`/api/course/deleteCourse/${cid}`, {
         method: 'DELETE', 
         headers: {
             'Content-Type': 'application/json'
