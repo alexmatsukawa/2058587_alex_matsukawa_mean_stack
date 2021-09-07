@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Course Platform - Add Course</title>
+        <script src="add_course.js"></script>
+    </head>
+    <body>
+        <h2 style="text-align: center;"><u>Add Course</u></h2>
+        <br>
+        <form>
+            <label><b><u>Course ID:</u> </b></label><input type="text" name="_id" required/><br>
+            <label><b><u>Course Name:</u> </b></label><input type="text" name="cname" required/><br>
+            <label><b><u>Description:</u> </b></label><input type="text" name="desc" required/><br>
+            <label><b><u>Course Price:</u> </b></label><input type="text" name="cost" required/><br>
+            <button type="button" onclick="saveCourse()">Add Course</button>
+            <button type="button" onclick="resetForm()">Reset</button><br>
+            <a href="/index1.html">Back to Index Page</a>
+        </form>
+    </body>
+</html>

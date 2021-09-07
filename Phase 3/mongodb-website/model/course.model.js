@@ -2,7 +2,7 @@ let mongoose = require('mongoose');
 mongoose.pluralize(null);
 
 let courseSchema = mongoose.Schema({
-    course_id : Number,
+    _id : Number,
     cname : String,
     desc : String,
     cost : Number
