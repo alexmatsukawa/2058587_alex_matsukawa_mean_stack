@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Chatbox</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/Javascript">
+        var socket = io();
+        function sendMessagetoServer() {
+            var timestamp = new Date();
+            socket.emit("name", document.getElementById("name").value);
+            socket.emit("message", document.getElementById("message").value);
+            socket.emit("time-sent", timestamp.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'}));
+            alert("Message Sent Successfully!");
+        }    
+
+        function clearFormData() {
+            document.getElementById("name").value = "";
+            document.getElementById("message").value = "";
+        }
+    </script>
+</head>
+<body>
+    <h2><u>Socket Chatting</u></h2>
+    <label><b>Name: &nbsp;&nbsp;&nbsp;&nbsp;</b></label><input type="text" id="name" name="name"><br>
+    <label><b>Message: </b></label><textarea name="message" id="message"></textarea><br><br>
+    <button onclick="sendMessagetoServer(); clearFormData()">Send Message</button>
+</body>
