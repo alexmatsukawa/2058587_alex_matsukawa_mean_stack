@@ -9,6 +9,12 @@
     </head>
     <body>
         <h2 style="text-align: center;"><u>Update Course</u></h2>
-        <a href="/index1.html">Back to Index Page</a>
+        <form>
+            <label><b><u>Course ID:</u> </b></label><input type="text" name="_id" required/><br>
+            <label><b><u>New Course Price:</u> </b></label><input type="text" name="cost" required/><br>
+            <button type="button" onclick="updateCourse()">Update Course</button>
+            <button type="button" onclick="resetForm()">Reset</button><br>
+            <a href="/index1.html">Back to Index Page</a>
+        </form>
     </body>
 </html>

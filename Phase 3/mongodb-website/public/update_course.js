@@ -6,16 +6,16 @@ const getData = () => {
     return formData;
 }
 
-const saveCourse = async () => {
+const updateCourse = async () => {
     //console.log(JSON.stringify(getData()));
-    await fetch('/api/course/addCourse', {
-        method: 'POST', 
+    await fetch('/api/course/updateCourse', {
+        method: 'PUT', 
         body: JSON.stringify(getData()),
         headers: {
             'Content-Type': 'application/json'
         }
     });
-    alert("Course Saved Successfully!");
+    alert("Course Updated Successfully!");
     window.location.href = "/index1.html"
 }
 
