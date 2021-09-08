@@ -11,29 +11,18 @@ let url = "mongodb://localhost:27017/tcs_mean";
 mongoose.connect(url).then(res => console.log("Connected...")).catch(error => console.log(error));
 
 const messageModel = require("./model/messageSchema");
-const counterModel = require("./model/counterSchema");
-
-
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "\\chatbox.html");
 })
 
+var messageDataArr = [];
+var messageid = 0;
+
 io.on("connection",(socket)=> {
     console.log("Client connected...");
 
-    var messageDataArr = [];
-    var messageJSONArr = [];
-    let counter = new counterModel({__id: "messageid", sequence_value: 0})
-    counterModel.insertMany(counter, (err, result) => {
-        if(!err) {
-            console.log("Counter Started...");
-        } else {
-            console.log(err);
-        }
-    })
-
     socket.on("name",(name)=> {
-        messageDataArr[0] = name.value;
+        messageDataArr[0] = name;
         console.log("Hello " + name + ",");
     })
     socket.on("message",(msg)=> {
@@ -45,11 +34,25 @@ io.on("connection",(socket)=> {
         messageDataArr[2] = timestamp;
         console.log("Time Sent: " + timestamp);
         console.log("");
+        //console.log(messageDataArr);
+        messageid++;
+        //console.log(messageid);
+        let message = new messageModel({
+            _id: messageid,
+            name: messageDataArr[0],
+            message: messageDataArr[1],
+            time_sent: messageDataArr[2]
+        });
+
+        messageModel.insertMany(message, (err, result) => {
+            if(!err) {
+                console.log("Message saved successsfully!");
+            } else {
+                console.log(err);
+            }
+        });;
     })
-
-    //console.log(messageDataArr);
-    //messageArr
-
+    
     socket.on("disconnect", () => {
         console.log("Client disconnected...")
     })

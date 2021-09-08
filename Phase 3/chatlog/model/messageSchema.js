@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.pluralize(null);
 
 let messageSchema = mongoose.Schema({
-    __id: Number,
+    _id: Number,
     name: String,
     message: String,
     time_sent: String
